@@ -10,10 +10,17 @@
 - [GhidraMCP](https://github.com/LaurieWired/GhidraMCP) : 为Ghidra逆向分析平台设计的模型上下文协议（MCP）扩展，通过标准化接口将反汇编器上下文暴露给下游大语言模型，实现自动化的汇编代码解释与逻辑分析。
 - [ida-pro-mcp](https://github.com/mrexodia/ida-pro-mcp) : IDA Pro静态分析插件，通过MCP协议将IDB数据库中的函数逻辑、交叉引用及反汇编元数据导出至外部AI Agent，构建基于模型对话的闭环逆向辅助环境。
 
-### 二进制分析工具
-- [Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy) : 多平台开源二进制文件特征分析工具，支持通过签名和脚本检测PE、ELF、Mach-O等多种格式的加壳器、编译器、打包器及特定算法信息。
+### IDA Pro插件与脚本
 - [go_parser](https://github.com/0xjiayu/go_parser) : 针对IDA Pro定制的Go语言二进制文件解析脚本，通过恢复程序编译过程中的类型信息、函数符号及pclntab元数据，实现对Go静态链接二进制文件的符号还原与逆向结构分析。
+- [VirusTotal IDA Plugin](https://github.com/VirusTotal/vt-ida-plugin) : IDA Pro扩展插件，集成VirusTotal API实现反汇编环境下的代码哈希检索、静态属性查询及样本多引擎检测关联分析。
+- [idawilli](https://github.com/williballenthin/idawilli) : 针对IDA Pro的一组逆向工程辅助脚本与工具集合，增强了二进制分析过程中的数据流追踪、函数定位及自动化标注能力。
+- [rhabdomancer](https://github.com/0xdea/rhabdomancer) : 基于IDA Pro的C/C++代码静态安全审计脚本，通过追踪潜在不安全函数调用并按严重程度排序，定位目标二进制文件中的缓冲区溢出等内存破坏漏洞。
+- [IDA-NO-MCP](https://github.com/P4nda0s/IDA-NO-MCP) : IDA Pro去混淆插件，通过指令级模拟与静态流分析识别并移除常见的代码混淆模式（如死代码注入、虚假控制流），恢复二进制文件的原始逻辑结构。
+
+### 二进制分析框架
+- [Detect-It-Easy](https://github.com/horsicq/Detect-It-Easy) : 多平台开源二进制文件特征分析工具，支持通过签名和脚本检测PE、ELF、Mach-O等多种格式的加壳器、编译器、打包器及特定算法信息。
 - [ofrak](https://github.com/redballoonsecurity/ofrak) : 模块化二进制分析与修改框架，提供统一的API用于固件解包、分析、打补丁及重新打包，支持跨架构（X86、ARM、MIPS等）的自动化逆向工程流水线。
+- [BinExport](https://github.com/google/binexport) : 二进制分析导出工具，将反汇编程序的控制流图、调用图及助记符数据转换为标准Protocol Buffers格式，为BinDiff等跨二进制比对工具提供结构化数据支撑。
 
 ### 模拟执行与动态分析
 - [uEmu](https://github.com/alexhude/uEmu) : 基于Unicorn Engine的IDA Pro模拟执行插件，支持在不依赖原始硬件环境的情况下，对任意选定的机器码片段进行寄存器初始化及单步伪调试运行。
@@ -31,12 +38,17 @@
 ### 移动设备安全
 - [objection](https://github.com/sensepost/objection) : 基于Frida构建的运行时移动设备探索工具包，支持在无需对应用进行重打包的情况下，对iOS和Android应用进行动态注入、内存操作、方法Hook、文件系统访问及绕过SSL Pinning。
 
+### Web应用安全
+- [witr](https://github.com/pranshuparmar/witr) : 面向Web应用的实时威胁检测与分析引擎，通过监控HTTP/HTTPS流量特征识别注入、跨站及逻辑绕过等攻击行为。
+
 ## 漏洞研究 (Vulnerability Research)
 
 ### 漏洞扫描与检测
 - [afrog](https://github.com/zan8in/afrog) : 基于Go语言开发的高性能漏洞扫描引擎，利用YAML格式的Poc指纹库实现对Web应用、中间件及网络设备的自动化安全缺陷验证与资产指纹识别。
 - [cwe_checker](https://github.com/fkie-cad/cwe_checker) : 基于BAP（Binary Analysis Platform）的二进制静态漏洞检测工具，通过分析可执行文件中的中间语言表示，自动化识别是否存在CWE标准中定义的内存损坏、不安全函数调用等安全缺陷。
 - [semgrep](https://github.com/semgrep/semgrep) : 轻量级多语言静态代码分析工具（SAST），通过模式匹配而非解析复杂的语义树，实现在本地或CI/CD流水线中快速扫描并拦截代码中的逻辑缺陷、安全漏洞及不合规编码规范。
+- [nuclei_poc](https://github.com/adysec/nuclei_poc) : 针对Nuclei扫描引擎定制的漏洞验证模板库，集成多类CVE与实战POC，用于分布式架构下的高并发Web安全基准测试与风险评估。
+- [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus) : 社区维护的高性能模糊测试框架，集成多种调度算法、变异引擎及QEMU、LLVM插桩技术，旨在提升二进制与源码层级的代码覆盖率及崩溃检测效率。
 
 ### 固件与嵌入式安全
 - [emba](https://github.com/e-m-b-a/emba) : 针对嵌入式设备固件的安全分析框架，通过自动化静态与动态分析流水线，提取文件系统并扫描内核配置、弱口令、硬编码漏洞及潜在的合规性问题。
@@ -46,12 +58,20 @@
 
 ### 权限维持与提升
 - [SearchAvailableExe](https://github.com/Neo-Maoku/SearchAvailableExe) : 权限维持与权限提升辅助脚本，通过自动化枚举系统路径下权限设置不当的可写可执行文件（EXE/DLL），识别用于劫持或替换的潜在二进制目标。
+- [SysWhispers2](https://github.com/jthuraisamy/SysWhispers2) : 绕过EDR钩子的直接系统调用生成工具，通过从系统内核层动态定位SSN（系统服务号），实现规避用户态API监控的底层系统操作。
 
 ### 恶意代码分析
+- [capa](https://github.com/mandiant/capa) : 自动化恶意软件功能识别工具，通过静态分析二进制文件导出程序能力列表，匹配恶意行为特征库并提供高置信度的战术映射。
 - [MaLoader](https://github.com/lv183037/MaLoader) : 针对macOS平台的反探测恶意代码加载器，通过私有API调用实现Mach-O文件的内存镜像映射与无落盘执行，绕过常规终端安全审计。
 - [pyinstxtractor](https://github.com/extremecoders-re/pyinstxtractor) : Python可执行文件解包脚本，支持提取PyInstaller封装包中的编译后字节码（pyc）及依赖资源，具备自动修复pyc文件头魔数的功能以适配各版本解释器。
 
 ## 人工智能与安全 (AI & Security)
+
+### AI辅助漏洞检测
+- [DeepAudit](https://github.com/lintsinghua/DeepAudit) : 基于深度学习的二进制代码漏洞审计工具，利用神经网络提取程序语义特征，实现跨架构、跨平台的已知与未知漏洞检测。
+
+### AI辅助渗透测试
+- [NeuroSploit](https://github.com/CyberSecurityUP/NeuroSploit) : 结合深度神经网络的自动化渗透测试框架，通过分析目标系统响应生成最优攻击载荷，实现漏洞利用过程的智能化决策。
 
 ### AI辅助开发
 - [next-ai-draw-io](https://github.com/DayuanJiang/next-ai-draw-io) : 集成大语言模型的流程图绘制系统，支持通过自然语言描述自动生成、修改及优化基于Draw.io/Diagrams.net标准的矢量架构图与逻辑图。
@@ -63,6 +83,9 @@
 ### 文档处理
 - [markitdown](https://github.com/microsoft/markitdown) : 异构文档转换工具，利用多模态处理能力将PDF、Word、Excel及图像等非结构化文件精准提取并转换为标准化Markdown格式。
 - [ilovepdf](https://www.ilovepdf.com/) : 在线多功能PDF文档处理平台，集成PDF合并、拆分、压缩、Office格式双向转换、OCR文字识别、电子签名及文档加密解锁等核心编辑功能的Web自动化工具集。
+- [Obsidian](https://obsidian.md/) : 基于本地Markdown文件的非线性知识管理系统，利用双向链接和图谱分析功能构建个人知识库，支持高扩展性的插件架构与多维数据组织。
+- [Typora](https://typora.io/) : 跨平台Markdown编辑器，采用即时渲染（WYSIWYG）引擎消除编辑与预览的界限，支持数学公式、代码块及图表集成，提供基于本地文件系统的文档组织与导出功能。
+- [markmap](https://markmap.js.org/) : 将Markdown文档实时渲染为交互式思维导图的可视化引擎，通过解析层级标题结构自动生成动态节点视图，支持跨平台嵌入与矢量图形导出。
 
 ### 代码分析与对比
 - [difftastic](https://github.com/Wilfred/difftastic) : 基于语法树分析（Structural Diff）的文件对比工具，通过解析代码抽象语法树而非逐行匹配，支持百余种编程语言，忽略格式缩进干扰以精准识别逻辑层面的代码变更。
